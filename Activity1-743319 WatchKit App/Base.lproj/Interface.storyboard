@@ -16,10 +16,19 @@
                             <fontDescription key="font" style="UICTFontTextStyleBody"/>
                         </label>
                         <label width="128" alignment="left" text="New msg from phone" textAlignment="center" id="WOu-vL-bwQ"/>
+                        <button width="1" alignment="left" title="Click Here" id="pfE-OD-8Ds">
+                            <color key="titleColor" red="0.2241826455" green="0.41503189870000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="font" type="system" pointSize="21"/>
+                            <connections>
+                                <action selector="sendmsgtophone:" destination="AgC-eL-Hgc" id="P2l-Uo-aYP"/>
+                            </connections>
+                        </button>
+                        <label width="131" alignment="left" text="Msg Sent: " id="UvH-wf-9N8"/>
                     </items>
                     <connections>
                         <outlet property="msgfromPhoneLabel" destination="sbm-Z9-bic" id="gOZ-O8-wR9"/>
                         <outlet property="newmsgfromPhoneLabel" destination="WOu-vL-bwQ" id="joH-Vv-aWR"/>
+                        <outlet property="sendMsgOutputLabel1" destination="UvH-wf-9N8" id="mss-KM-Rr5"/>
                     </connections>
                 </controller>
             </objects>

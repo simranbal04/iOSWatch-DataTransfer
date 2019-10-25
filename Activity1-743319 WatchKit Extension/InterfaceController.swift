@@ -17,12 +17,38 @@ class InterfaceController: WKInterfaceController, WCSessionDelegate
         
     }
     
-    
+     var messageCounter1:Int = 0
     @IBOutlet weak var msgfromPhoneLabel: WKInterfaceLabel!
     
     @IBOutlet weak var newmsgfromPhoneLabel: WKInterfaceLabel!
     
+    @IBOutlet weak var sendMsgOutputLabel1: WKInterfaceLabel!
     
+  // code for watch to phone
+    @IBAction func sendmsgtophone(_ sender: Any) {
+        print("Sending Message to Phone")
+        if (WCSession.default.isReachable == true)
+        {
+            let message1 = ["name":"banana","color":"Yellow"]
+//                as [String : Any]
+            
+            // send the message
+            WCSession.default.sendMessage(message1, replyHandler: nil)
+            messageCounter1 = messageCounter1 + 1
+            sendMsgOutputLabel1.setText("Message Sent")
+            
+        }
+                
+            else {
+                messageCounter1 = messageCounter1 + 1
+                sendMsgOutputLabel1.setText("Message Cannot be sent")
+            }
+            
+            
+        }
+        
+    
+    // code to recieve data from phone in watch
     
     // Function to receive DICTIONARY from the watch
     func session(_ session: WCSession, didReceiveMessage message: [String : Any])

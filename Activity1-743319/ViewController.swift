@@ -25,6 +25,8 @@ class ViewController: UIViewController, WCSessionDelegate{
     
     @IBOutlet weak var sendMsgOutputLabel: UILabel!
     
+//  @IBOutlet weak var connection: UILabel!
+    
     @IBOutlet weak var connection: UILabel!
     
       var messageCounter:Int = 0
@@ -33,10 +35,10 @@ class ViewController: UIViewController, WCSessionDelegate{
         super.viewDidLoad()
         print(" APP Is Working!")
         // Do any additional setup after loading the view.
-    
+
         if (WCSession.isSupported() == true) {
             connection.text = "WC is supported!"
-            
+
             // create a communication session with the watch
             let session = WCSession.default
             session.delegate = self
@@ -70,6 +72,26 @@ class ViewController: UIViewController, WCSessionDelegate{
         
     }
     
+    
+    
+    // code for getting data from watch
+    
+    
+    @IBOutlet weak var getmsg1: UILabel!
+    
+    @IBOutlet weak var getmsg2: UILabel!
+    
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("Phone: I received a message from watch: \(message)")
+        
+        let name = message["name"] as! String
+        let color = message["color"] as! String
+        getmsg1.text = name
+        getmsg2.text = color
+        
+        
+    }
 
 }
 
